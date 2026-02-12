@@ -1,25 +1,19 @@
 // PERSONALIZA AQUÍ ✨
-const recipientName = "Mi amor";     // Ej: "Carlos"
-const fromName = "Tu amor";          // Ej: "Sofi"
+const recipientName = "Andrés...";     // Ej: "Carlos"
+const fromName = "Fátima";          // Ej: "Sofi"
 const poem = `
-Amor de mi vida, mi calma y mi casa:
-en tu voz se me ordena el mundo,
-y en tus manos encuentro refugio.
+Tú eres el pincel
+Que pinta mi papel
+Tú llenas de color mi vida
 
-Si el día se cansa, tú eres mi fuerza,
-si la noche me pesa, tú eres mi luz.
-Contigo la vida aprende a ser bonita,
-y lo simple se vuelve un milagro.
+Contigo me siento bien
+Eres como te soñé
+Así que ven y quédate en mi vida
 
-Te amo sin prisa, pero sin pausa,
-con la certeza tranquila de lo verdadero:
-no por lo perfecto, sino por lo nuestro.
+Tus palabras me hacen ver
+Que no eres de papel
+Mi otra mitad, ya te encontré
 
-Que este amor nos cuide por dentro,
-que nos elija en cada amanecer,
-y que mi corazón, donde vaya,
-siga diciendo tu nombre
-como quien reza con felicidad.
 `;
 
 const envelope = document.getElementById("envelope");
