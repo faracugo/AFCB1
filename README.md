@@ -1,4 +1,4 @@
-# 💘 Carta de San Valentín (GitHub Pages)
+# 💘 Carta de San Valentín 
 
 Una carta interactiva con animación de sobre, poema con efecto máquina de escribir y corazones flotando.
 
