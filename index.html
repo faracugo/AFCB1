@@ -1,1 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para el amor de mi vida</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#ff4d6d" />
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
 
+  <main class="wrap">
+    <header class="top">
+      <h1>💘 Feliz Día del Enamorado 💘</h1>
+      <p class="subtitle">Una carta hecha con todo mi amor</p>
+    </header>
+
+    <section class="card" aria-label="Carta de amor">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir carta">
+        <div class="env-back"></div>
+        <div class="env-front"></div>
+        <div class="letter" id="letter" aria-live="polite">
+          <div class="letter-inner">
+            <p class="to" id="toLine">Para: <strong>Mi amor</strong></p>
+            <h2 class="letter-title">Mi carta para ti</h2>
+
+            <div class="poem">
+              <p id="poemText"></p>
+            </div>
+
+            <p class="signature">
+              Con amor infinito, <br />
+              <span id="fromLine">— Tu persona</span>
+            </p>
+
+            <div class="actions">
+              <button class="btn" id="promiseBtn" type="button">Mi promesa 💍</button>
+              <button class="btn ghost" id="replayBtn" type="button">Repetir ✨</button>
+            </div>
+
+            <p class="promise" id="promiseBox" hidden>
+              Prometo elegirte en lo simple y en lo difícil, en los días de sol y en los de tormenta.
+              Prometo cuidarte, admirarte, respetarte y amarte… hoy, mañana y siempre.
+            </p>
+
+            <p class="tiny">Hecho especialmente para ti ❤️</p>
+          </div>
+        </div>
+        <div class="env-flap" id="flap"></div>
+      </div>
+
+      <p class="hint">Tip: Haz clic (o Enter) sobre el sobre para abrir la carta.</p>
+    </section>
+
+    <footer class="footer">
+      <p>Si quieres, puedo adaptar el poema a su nombre y su historia ✨</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+``
