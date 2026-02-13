@@ -1,19 +1,51 @@
 // PERSONALIZA AQUÍ ✨
-const recipientName = "Andrés...";     // Ej: "Carlos"
-const fromName = "Fátima";          // Ej: "Sofi"
+const recipientName = "Andrés Felipe";     // Ej: "Carlos"
+const fromName = "Fati";          // Ej: "Sofi"
 const poem = `
-Tú eres el pincel
-Que pinta mi papel
-Tú llenas de color mi vida
+Amor, déjame ser yo lo primero
+Que se asome ahí en tu almohada
+Que tu pecho sea siempre
+Donde apoyaré mi cara
+Y que hagas nudo con mis piernas
+Cuando yo me duerma
 
-Contigo me siento bien
-Eres como te soñé
-Así que ven y quédate en mi vida
+Amor, déjame ser siempre el deseo
+Que hace que vuelvas a casa
+Que aún mires mi cintura
+Y quieras ser tú quien la abraza
+Que en mi oído siempre duerman
+Todas tus palabras
 
-Tus palabras me hacen ver
-Que no eres de papel
-Mi otra mitad, ya te encontré
+Y ser la mejor parte que hay de ti
 
+Déjame abrazarte para siempre
+Déjame besarte a mi manera
+Agarrar tu mano donde quiera
+Porque yo he nacido pa' quererte
+
+Amor, yo quiero hacer vida contigo
+Ser amantes, ser amigos
+Y ser la historia favorita
+Que comparten los testigos
+Que conocen lo que somos
+Y lo que antes fuimos
+
+Y ser la mejor parte que hay de mí
+
+Y déjame abrazarte para siempre
+Déjame besarte a mi manera
+Agarrar tu mano donde quiera
+Porque yo he nacido pa' quererte
+
+Yo quiero ser tu compañera
+Y solo quiero sumar a tu vida
+Ser la espuma blanca ahí en la arena
+Que vive acercándose a tu orilla
+
+Y déjame abrazarte para siempre
+Déjame besarte a mi manera
+Agarrar tu mano donde quiera
+Porque yo he nacido pa' quererte
 `;
 
 const envelope = document.getElementById("envelope");
