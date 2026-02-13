@@ -2,50 +2,56 @@
 const recipientName = "Andrés Felipe";     // Ej: "Carlos"
 const fromName = "Fati";          // Ej: "Sofi"
 const poem = `
-Amor, déjame ser yo lo primero
-Que se asome ahí en tu almohada
-Que tu pecho sea siempre
-Donde apoyaré mi cara
-Y que hagas nudo con mis piernas
-Cuando yo me duerma
+Quiero que sepas que sos la persona 
+por la que tantas veces le pedí a Dios, 
+incluso antes de conocerte. 
 
-Amor, déjame ser siempre el deseo
-Que hace que vuelvas a casa
-Que aún mires mi cintura
-Y quieras ser tú quien la abraza
-Que en mi oído siempre duerman
-Todas tus palabras
+Sos esa respuesta silenciosa 
+que llegó cuando menos lo esperaba, 
+pero en el momento justo. 
+Sos mucho más de lo que
+alguna vez me animé a imaginar.
 
-Y ser la mejor parte que hay de ti
+Sos un hombre increíblemente amoroso, 
+atento, apasionado y detallista. 
+Soñador, pero con los pies en la tierra. 
+Realista, pero sin dejar de creer. 
+Ambicioso en el mejor sentido: 
+con ganas de crecer, de construir, de ir por más. 
 
-Déjame abrazarte para siempre
-Déjame besarte a mi manera
-Agarrar tu mano donde quiera
-Porque yo he nacido pa' quererte
+Y en medio de todo eso, 
+sos mi hogar. 
+Ese lugar seguro al que siempre quiero volver.
 
-Amor, yo quiero hacer vida contigo
-Ser amantes, ser amigos
-Y ser la historia favorita
-Que comparten los testigos
-Que conocen lo que somos
-Y lo que antes fuimos
+Con vos sueño una vida entera. 
+Sueño con que cumplamos metas juntos, 
+con que construyamos nuestra/s empresa/s, 
+nuestra casa, nuestro espacio. 
 
-Y ser la mejor parte que hay de mí
+Sueño con viajar por el mundo de tu mano, 
+con conocer lugares nuevos 
+y también con volver siempre al mismo abrazo. 
 
-Y déjame abrazarte para siempre
-Déjame besarte a mi manera
-Agarrar tu mano donde quiera
-Porque yo he nacido pa' quererte
+Sueño con nuestros hijos, 
+Rosa Inés y Arturo, 
+con nuestras mascotas, 
+con una vida tranquila pero divertida, 
+simple pero llena de amor.
 
-Yo quiero ser tu compañera
-Y solo quiero sumar a tu vida
-Ser la espuma blanca ahí en la arena
-Que vive acercándose a tu orilla
+Sueño con largas horas de conversación, 
+con mirarnos y entendernos sin palabras, 
+con seguir conectando incluso en el silencio. 
+Con cantar y bailar juntos aunque no haya música, 
+con abrazarnos un montón, con elegirnos todos los días. 
+Con desearnos siempre, 
+cuidarnos, protegernos, 
+ser el cable a tierra del otro cuando todo se sacude.
 
-Y déjame abrazarte para siempre
-Déjame besarte a mi manera
-Agarrar tu mano donde quiera
-Porque yo he nacido pa' quererte
+Gracias por ser quien sos. 
+Gracias por existir de la manera en que existís. 
+Yo te elijo hoy y te elegiría mil veces más, 
+porque con vos, todo tiene sentido.
+Te amo primera 😉
 `;
 
 const envelope = document.getElementById("envelope");
