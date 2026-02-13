@@ -1,3 +1,4 @@
+const music = document.getElementById("bgMusic");
 // PERSONALIZA AQUÍ ✨
 const recipientName = "Andrés Felipe";     // Ej: "Carlos"
 const fromName = "Fati";          // Ej: "Sofi"
@@ -87,6 +88,12 @@ function openLetter(){
   promiseBox.hidden = true;
   typeWriter(poem.trim(), poemText, 16);
   burstHearts(18);
+
+  // 🎵 Iniciar música
+  music.volume = 0.5; // volumen suave
+  music.play().catch(() => {
+    console.log("El navegador bloqueó el autoplay hasta interacción.");
+  });
 }
 
 function resetLetter(){
