@@ -1,3 +1,16 @@
+console.log("✅ script.js cargó");
+
+const envelope = document.getElementById("envelope");
+console.log("envelope:", envelope);
+
+if (!envelope) {
+  alert("No encuentro el sobre. Revisa que exista id='envelope' en el HTML.");
+} else {
+  envelope.addEventListener("click", () => {
+    console.log("🧡 Click detectado: abriendo carta");
+    envelope.classList.toggle("open");
+  });
+}
 // PERSONALIZA AQUÍ ✨
 const music = document.getElementById("bgMusic");
 const recipientName = "Andrés Felipe";     // Ej: "Carlos"
