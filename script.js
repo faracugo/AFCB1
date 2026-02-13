@@ -1,28 +1,26 @@
 console.log("✅ script.js cargó");
 
-const envelope = document.getElementById("envelope");
-let opened = false;
+document.addEventListener("DOMContentLoaded", () => {
+  // Elementos principales
+  const envelope = document.getElementById("envelope");
+  const poemText = document.getElementById("poemText");
+  const toLine = document.getElementById("toLine");
+  const fromLine = document.getElementById("fromLine");
+  const promiseBtn = document.getElementById("promiseBtn");
+  const replayBtn = document.getElementById("replayBtn");
+  const promiseBox = document.getElementById("promiseBox");
+  const music = document.getElementById("bgMusic");
+  const heartsLayer = document.querySelector(".hearts");
 
-function openLetter(){
-  if (!envelope) return;
-  if (opened) return;
-  opened = true;
-  envelope.classList.add("open");
-}
+  if (!envelope) {
+    console.error("❌ No se encontró #envelope. Revisa el id en index.html");
+    return;
+  }
 
-if (envelope) {
-  envelope.addEventListener("click", openLetter);
-  envelope.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") openLetter();
-  });
-} else {
-  console.error("No se encontró #envelope. Revisa el id en index.html");
-}
-// PERSONALIZA AQUÍ ✨
-const music = document.getElementById("bgMusic");
-const recipientName = "Andrés Felipe";     // Ej: "Carlos"
-const fromName = "Fati";          // Ej: "Sofi"
-const poem = `
+  // PERSONALIZA AQUÍ ✨
+  const recipientName = "Andrés Felipe";
+  const fromName = "Fati";
+  const poem = `
 Quiero que sepas que sos la persona 
 por la que tantas veces le pedí a Dios, 
 incluso antes de conocerte. 
@@ -73,107 +71,112 @@ Gracias por existir de la manera en que existís.
 Yo te elijo hoy y te elegiría mil veces más, 
 porque con vos, todo tiene sentido.
 Te amo primera 😉
-`;
+  `.trim();
 
-const envelope = document.getElementById("envelope");
-const poemText = document.getElementById("poemText");
-const toLine = document.getElementById("toLine");
-const fromLine = document.getElementById("fromLine");
-const promiseBtn = document.getElementById("promiseBtn");
-const replayBtn = document.getElementById("replayBtn");
-const promiseBox = document.getElementById("promiseBox");
+  // Poner nombres en la carta (si existen)
+  if (toLine) toLine.innerHTML = `Para: <strong>${recipientName}</strong>`;
+  if (fromLine) fromLine.textContent = `— ${fromName}`;
 
-toLine.innerHTML = `Para: <strong>${recipientName}</strong>`;
-fromLine.textContent = `— ${fromName}`;
+  // Máquina de escribir
+  let opened = false;
+  let typingTimer = null;
 
-let opened = false;
-let typingTimer = null;
+  function typeWriter(text, el, speed = 16) {
+    if (!el) return;
+    el.textContent = "";
+    let i = 0;
+    clearInterval(typingTimer);
+    typingTimer = setInterval(() => {
+      el.textContent += text.charAt(i);
+      i++;
+      if (i >= text.length) clearInterval(typingTimer);
+    }, speed);
+  }
 
-function typeWriter(text, el, speed = 18){
-  el.textContent = "";
-  let i = 0;
+  // Corazones
+  function burstHearts(n = 12) {
+    if (!heartsLayer) return;
+    for (let i = 0; i < n; i++) {
+      const h = document.createElement("div");
+      h.className = "heart";
+      const left = 30 + Math.random() * 40;
+      const size = 10 + Math.random() * 18;
+      const dur = 2.4 + Math.random() * 1.8;
+      h.style.left = `${left}vw`;
+      h.style.width = `${size}px`;
+      h.style.height = `${size}px`;
+      h.style.animationDuration = `${dur}s`;
+      h.style.opacity = (0.5 + Math.random() * 0.45).toFixed(2);
+      heartsLayer.appendChild(h);
+      setTimeout(() => h.remove(), dur * 1000);
+    }
+  }
 
-  clearInterval(typingTimer);
-  typingTimer = setInterval(() => {
-    el.textContent += text.charAt(i);
-    i++;
-    if (i >= text.length) clearInterval(typingTimer);
-  }, speed);
-}
-
-function openLetter(){
-  if (opened) return;
-  opened = true;
-  envelope.classList.add("open");
-  promiseBox.hidden = true;
-  typeWriter(poem.trim(), poemText, 16);
-  burstHearts(18);
-
-  // 🎵 Iniciar música
-  music.volume = 0.5; // volumen suave
-  music.play().catch(() => {
-    console.log("El navegador bloqueó el autoplay hasta interacción.");
-  });
-};
-  
-function resetLetter(){
-  opened = false;
-  envelope.classList.remove("open");
-  promiseBox.hidden = true;
-  poemText.textContent = "";
-}
-
-envelope.addEventListener("click", openLetter);
-envelope.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" || e.key === " ") openLetter();
-});
-
-promiseBtn.addEventListener("click", () => {
-  promiseBox.hidden = !promiseBox.hidden;
-  burstHearts(10);
-});
-
-replayBtn.addEventListener("click", () => {
-  resetLetter();
-  setTimeout(openLetter, 150);
-});
-
-// Corazones flotando constantes
-const heartsLayer = document.querySelector(".hearts");
-function spawnFloatingHeart(){
-  const h = document.createElement("div");
-  h.className = "heart";
-  const left = Math.random() * 100;
-  const size = 10 + Math.random() * 14;
-  const dur = 6 + Math.random() * 6;
-
-  h.style.left = `${left}vw`;
-  h.style.width = `${size}px`;
-  h.style.height = `${size}px`;
-  h.style.animationDuration = `${dur}s`;
-  h.style.opacity = (0.35 + Math.random() * 0.55).toFixed(2);
-
-  heartsLayer.appendChild(h);
-  setTimeout(() => h.remove(), dur * 1000);
-}
-setInterval(spawnFloatingHeart, 450);
-
-// Explosión de corazones cuando abres / botones
-function burstHearts(n=12){
-  for(let i=0;i<n;i++){
+  function spawnFloatingHeart() {
+    if (!heartsLayer) return;
     const h = document.createElement("div");
     h.className = "heart";
-    const left = 30 + Math.random() * 40; // centro aprox
-    const size = 10 + Math.random() * 18;
-    const dur = 2.4 + Math.random() * 1.8;
-
+    const left = Math.random() * 100;
+    const size = 10 + Math.random() * 14;
+    const dur = 6 + Math.random() * 6;
     h.style.left = `${left}vw`;
     h.style.width = `${size}px`;
     h.style.height = `${size}px`;
     h.style.animationDuration = `${dur}s`;
-    h.style.opacity = (0.5 + Math.random() * 0.45).toFixed(2);
-
+    h.style.opacity = (0.35 + Math.random() * 0.55).toFixed(2);
     heartsLayer.appendChild(h);
     setTimeout(() => h.remove(), dur * 1000);
   }
-}
+
+  setInterval(spawnFloatingHeart, 450);
+
+  // Música segura
+  async function startMusic() {
+    if (!music) return;
+    try {
+      music.volume = 0.5;
+      await music.play();
+    } catch (e) {
+      console.log("🎵 El navegador bloqueó la reproducción:", e);
+    }
+  }
+
+  // Abrir / reset
+  function openLetter() {
+    if (opened) return;
+    opened = true;
+    envelope.classList.add("open");
+    if (promiseBox) promiseBox.hidden = true;
+    typeWriter(poem, poemText, 14);
+    burstHearts(18);
+    startMusic();
+  }
+
+  function resetLetter() {
+    opened = false;
+    envelope.classList.remove("open");
+    if (promiseBox) promiseBox.hidden = true;
+    if (poemText) poemText.textContent = "";
+  }
+
+  // Listeners (UNA SOLA VEZ)
+  envelope.addEventListener("click", openLetter);
+  envelope.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") openLetter();
+  });
+
+  if (promiseBtn) {
+    promiseBtn.addEventListener("click", () => {
+      if (!promiseBox) return;
+      promiseBox.hidden = !promiseBox.hidden;
+      burstHearts(10);
+    });
+  }
+
+  if (replayBtn) {
+    replayBtn.addEventListener("click", () => {
+      resetLetter();
+      setTimeout(openLetter, 150);
+    });
+  }
+});
