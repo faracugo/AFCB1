@@ -90,12 +90,19 @@ function openLetter(){
   burstHearts(18);
 
   // 🎵 Iniciar música
-  music.volume = 0.5; // volumen suave
-  music.play().catch(() => {
-    console.log("El navegador bloqueó el autoplay hasta interacción.");
-  });
-}
+  music.volume = 0;
+  music.play();
 
+let v = 0;
+const fade = setInterval(() => {
+  if (v < 0.5) {
+    v += 0.02;
+    music.volume = v;
+  } else {
+    clearInterval(fade);
+  }
+}, 120);
+  
 function resetLetter(){
   opened = false;
   envelope.classList.remove("open");
