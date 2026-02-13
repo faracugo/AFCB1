@@ -1,15 +1,22 @@
 console.log("✅ script.js cargó");
 
 const envelope = document.getElementById("envelope");
-console.log("envelope:", envelope);
+let opened = false;
 
-if (!envelope) {
-  alert("No encuentro el sobre. Revisa que exista id='envelope' en el HTML.");
-} else {
-  envelope.addEventListener("click", () => {
-    console.log("🧡 Click detectado: abriendo carta");
-    envelope.classList.toggle("open");
+function openLetter(){
+  if (!envelope) return;
+  if (opened) return;
+  opened = true;
+  envelope.classList.add("open");
+}
+
+if (envelope) {
+  envelope.addEventListener("click", openLetter);
+  envelope.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") openLetter();
   });
+} else {
+  console.error("No se encontró #envelope. Revisa el id en index.html");
 }
 // PERSONALIZA AQUÍ ✨
 const music = document.getElementById("bgMusic");
